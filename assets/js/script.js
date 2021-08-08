@@ -1,29 +1,51 @@
-console.log('I workin')
+let cityData=[];
+var lat ;
+var lon ;
 
-function getweatherData() {
-    var endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&appid=b1034edd48bb8721bfd5c43b5819c1c1"
+function cityInfo(cityName = "Dixon") {
+    let endPoint = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&&appid=b1034edd48bb8721bfd5c43b5819c1c1"
     fetch(endPoint)
         .then(function (response) {
-           // console.log(response);
+            //console.log(response)
             return response.json();
         })
         .then(function (data) {
-        console.log(data);
+            cityData[0] = data[0];
+            console.log(cityData);
+            lat = data[0].lat;
+            console.log(lat);
+            lon = data[0].lon;
+            console.log(lon);
+            return (cityData);
+        
+        })   
+}
+
+
+
+//cityInfo();
+
+
+document.querySelector('#search').addEventListener('submit', function (event) {
+    event.preventDefault();
+    cityInfo(document.querySelector('input').value.trim());
+});
+
+
+function getweatherData() {
+       let endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat="+ lat +"&lon=" + lon+"&appid=b1034edd48bb8721bfd5c43b5819c1c1"
+console.log(endPoint);    
+    fetch(endPoint)
+        .then(function (response) {
+            console.log("Fetch2");
+            console.log(response);
+            return response.json();
+        })
+        .then(function (data) {
+         console.log(data);
         })
 }
-getweatherData()
 
 
-var headers = new Headers();
-headers.append("X-CSCAPI-KEY", "API_KEY");
-
-var requestOptions = {
-    method: 'GET',
-    headers: headers,
-    redirect: 'follow'
-};
-
-fetch("https://api.countrystatecity.in/v1/countries/IN/states/MH/cities", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+getweatherData();
+cityInfo();
