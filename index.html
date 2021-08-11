@@ -26,12 +26,12 @@
               </form>
               <div id="cityContainer" class="cityList">
                     <h6 id="#cityData1"></h6>
-                    <!-- <h6 id="#cityData2"></h6>
+                    <h6 id="#cityData2"></h6>
                     <h6 id="#cityData3"></h6>
                     <h6 id="#cityData4"></h6>
-                    <h6 id="#cityData5"></h6> -->
+                    <h6 id="#cityData5"></h6>
               </div>
-                <button class="btn">Austin</button>
+                <button class="btn" type="submit">Austin</button>
                 <button class="btn">Chicago</button>
                 <button class="btn">New York</button>
                 <button class="btn">Orlando</button>
@@ -45,48 +45,58 @@
             <div class="col-md-9">
                 <div class="row">
                     <div id="currentcity" class="col-md-12">
-                      <div class="row">City</div>
-                      <div class="row">Temp:</div>
-                      <div class="row">Wind:</div>
-                      <div class="row">Humidity:</div>
-                      <div class="row">UV Index:</div>
+                      <div class="row" >
+                        <h1 id="cCity" ></h1>
+                    </div>
+                      <div class="row"id="cTemp"></div>
+                       <div class="row" id="cWind"></div>
+                      <div class="row" id="cHumidity"></div>
+                      <div class="row" id="cUVI"></div>
                     </div>
                 </div>
                 <div class="row">
-                    <header>5-Day Forcast</header>
+                    <header>
+                        <h2>5-Day Forcast</h2>
+                    </header>
                     <div class="col-md">
                         <div class="row">
                         <div class="col-md">
-                        <p>Date</p>
-                        <p>icon</p>
-                        <p>Temp</p>
-                        <p>Wind</p>
-                        <p>Humidity</p></div>
+                        <p id="day1Date">Date</p>
+                        <p id="day1Icon">icon</p>
+                        <p id="day1Temp">Temp</p>
+                        <p id="day1Wind">Wind</p>
+                        <p id="day1Humidity">Humidity</p>
+                    </div>
                     <div class="col-md">
-                        <p>Date</p>
-                        <p>icon</p>
-                        <p>Temp</p>
-                        <p>Wind</p>
-                        <p>Humidity</p></div>
+                        <p id="day2Date">Date</p>
+                        <p id="day2Icon">icon</p>
+                        <p id="day2Temp">Temp</p>
+                        <p id="day2Wind">Wind</p>
+                        <p id="day2Humidity">Humidity</p>
+                    </div>
                     <div class="col-md">
-                        <p>Date</p>
-                        <p>icon</p>
-                        <p>Temp</p>
-                        <p>Wind</p>
-                        <p>Humidity</p></div>
+                       <p id="day3Date">Date</p>
+                        <p id="day3Icon">icon</p>
+                        <p id="day3Temp">Temp</p>
+                        <p id="day3Wind">Wind</p>
+                        <p id="day3Humidity">Humidity</p>
+                    </div>
                     <div class="col-md">
-                        <p>Date</p>
-                        <p>icon</p>
-                        <p>Temp</p>
-                        <p>Wind</p>
-                        <p>Humidity</p></div>
+                       <p id="day4Date">Date</p>
+                        <p id="day4Icon">icon</p>
+                        <p id="day4Temp">Temp</p>
+                        <p id="day4Wind">Wind</p>
+                        <p id="day4Humidity">Humidity</p>
+                    </div>
                     <div class="col-md">
-                        <p>Date</p>
-                        <p>icon</p>
-                        <p>Temp</p>
-                        <p>Wind</p>
-                        <p>Humidity</p></div>
-                    </div></div>
+                       <p id="day5Date">Date</p>
+                        <p id="day5Icon">icon</p>
+                        <p id="day5Temp">Temp</p>
+                        <p id="day5Wind">Wind</p>
+                        <p id="day5Humidity">Humidity</p>
+                    </div>
+                    </div>
+                    
                   </div>    
                 </div>
             </div>
@@ -100,6 +110,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/script.js"></script>
 
