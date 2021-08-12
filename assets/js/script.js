@@ -26,9 +26,7 @@ function cityInfo(cityName = "Dixon") {
                return response.json();
             })
             .then(function (data) {
-                cityData=data;
-                
-                //console.log(cityData);          
+                cityData=data;    
                
                 //variables used for the current City
                 const temp=cityData.current.temp;
@@ -38,65 +36,56 @@ function cityInfo(cityName = "Dixon") {
                 const uvi=cityData.current.uvi
                 const dateString = moment.unix(date).format("MM/DD/YYYY");
                 
-                
+                //create the City & Date String for current Chosen City and Date
                 const chosenCityDate = cityName+"   ("+ dateString+")";
                 document.getElementById("cCity").innerHTML = chosenCityDate;
                 
+                //create Temp String
                 const todayTemp = "Temp: " + temp +" F";
                 document.getElementById("cTemp").innerHTML = todayTemp;
                
+                //create Wind String
                 const todayWind = "Wind: " + wind+" mph";
-               // console.log(todayWind);
                 document.getElementById("cWind").innerHTML = todayWind;
 
+                //create Humidity String
                 const todayHumidity = "Humidity: " + humidity+ "%";
-               // console.log(todayHumidity);
                 document.getElementById("cHumidity").innerHTML = todayHumidity;
 
+                //create UVI String
                 const todayUVI = "UVI: " + uvi;
-                // console.log(todayUVI);
                 document.getElementById("cUVI").innerHTML = todayUVI;
 
                 //five day forcast
-                console.log("Starting 5 day Forcast")
                 for (let i = 1; i < 6; i++) {
-                    //console.log(i);
+                    //creating the ids of the days
                     let dayof5=i;
-                    //console.log(dayof5)
                     let id="day"+dayof5;
-                   // console.log(id);
                     let idTemp=id+"Temp";
-                   // console.log(idTemp);
                     let idWind=id+"Wind";
-                   // console.log(idWind)
                     let idHumidity=id+"Humidity"
-                   // console.log(idHumidity);
                     let idDate=id+"Date"
-                   // console.log(idDate);
                     let idIcon=id+"Icon";
-                   // console.log(idIcon);
+                   //set element array to citydata.daily
                     const element = cityData.daily[i];
-                   // console.log(element);
                    
+                    //set the value of the element types
                     const dTemp = element.temp.day;
                     const dDate = element.dt;
                     const dWind = element.wind_speed;
                     const dHumidity = element.humidity;
                     const dIcon = element.weather[0].icon;
-                   
+
+                    // construct the date string
                     const dDateString = moment.unix(dDate).format("MM/DD/YYYY");
-                    //console.log(dDateString);
                     const dayDate = "Date: " + dDateString;
-                    //console.log(dayDate)
                     document.getElementById(idDate).innerHTML = dayDate;
 
-                    const dayTemp = "Temp: " + dTemp + " F";    
-                    //console.log(dayTemp)           
+                    //construct the Temperature String
+                    const dayTemp = "Temp: " + dTemp + " F";          
                     document.getElementById(idTemp).innerHTML= dayTemp;
 
-                    //const dayIcon = dIcon;
-                    //console.log(dayIcon)
-
+                    //get the weather Icon
                     const dayIcon = document.createElement("img");
                     dayIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + dIcon + "@2x.png");
                     // console.log("Icon");
@@ -104,13 +93,12 @@ function cityInfo(cityName = "Dixon") {
                     document.getElementById(idIcon).innerHTML="";
                     document.getElementById(idIcon).appendChild(dayIcon);
 
-
+                    //construct the Wind String
                     const dayWind = "Wind: " + dWind + " mph";
-                    // console.log(dayWind);
                     document.getElementById(idWind).innerHTML =dayWind;
 
+                    //construct the Humidity String
                     const dayHumidity = "Humidity: " + dHumidity + "%";
-                    // console.log(dayHumidity);
                     document.getElementById(idHumidity).innerHTML = dayHumidity;
 
                  
@@ -142,14 +130,4 @@ document.querySelector('#cityContainer').addEventListener('click', function (eve
     }
    
 });
-
-// function cityFunction(event){
-   
-//     cityInfo(cityName = document.querySelector('.btn').value);
-//     console.log(cityName);
-
-// }
-
-
-
 cityInfo();
