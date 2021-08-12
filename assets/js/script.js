@@ -20,7 +20,7 @@ function cityInfo(cityName = "Dixon") {
     function getweatherData(lat,lon,cityName) {
 
          let endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=b1034edd48bb8721bfd5c43b5819c1c1"
-            console.log(endPoint);
+           // console.log(endPoint);
             fetch(endPoint)
             .then(function (response) {
                return response.json();
@@ -28,7 +28,7 @@ function cityInfo(cityName = "Dixon") {
             .then(function (data) {
                 cityData=data;
                 
-                console.log(cityData);          
+                //console.log(cityData);          
                
                 //variables used for the current City
                 const temp=cityData.current.temp;
@@ -46,57 +46,71 @@ function cityInfo(cityName = "Dixon") {
                 document.getElementById("cTemp").innerHTML = todayTemp;
                
                 const todayWind = "Wind: " + wind+" mph";
-                console.log(todayWind);
+               // console.log(todayWind);
                 document.getElementById("cWind").innerHTML = todayWind;
 
                 const todayHumidity = "Humidity: " + humidity+ "%";
-                console.log(todayHumidity);
+               // console.log(todayHumidity);
                 document.getElementById("cHumidity").innerHTML = todayHumidity;
 
                 const todayUVI = "UVI: " + uvi;
-                console.log(todayUVI);
+                // console.log(todayUVI);
                 document.getElementById("cUVI").innerHTML = todayUVI;
 
                 //five day forcast
                 console.log("Starting 5 day Forcast")
-                for (let i = 0; i < 5; i++) {
-                    console.log(i);
-                    let dayof5=i+1;
-                    console.log(dayof5)
+                for (let i = 1; i < 6; i++) {
+                    //console.log(i);
+                    let dayof5=i;
+                    //console.log(dayof5)
                     let id="day"+dayof5;
-                    console.log(id);
+                   // console.log(id);
                     let idTemp=id+"Temp";
-                    console.log(idTemp);
+                   // console.log(idTemp);
                     let idWind=id+"Wind";
-                    console.log(idWind)
+                   // console.log(idWind)
                     let idHumidity=id+"Humidity"
-                    console.log(idHumidity);
+                   // console.log(idHumidity);
                     let idDate=id+"Date"
-                    console.log(idDate);
+                   // console.log(idDate);
+                    let idIcon=id+"Icon";
+                   // console.log(idIcon);
                     const element = cityData.daily[i];
-                    console.log(element);
+                   // console.log(element);
                    
                     const dTemp = element.temp.day;
                     const dDate = element.dt;
                     const dWind = element.wind_speed;
                     const dHumidity = element.humidity;
+                    const dIcon = element.weather[0].icon;
                    
                     const dDateString = moment.unix(dDate).format("MM/DD/YYYY");
-                        console.log(dDateString);
+                    //console.log(dDateString);
                     const dayDate = "Date: " + dDateString;
-                    console.log(dayDate)
+                    //console.log(dayDate)
                     document.getElementById(idDate).innerHTML = dayDate;
 
                     const dayTemp = "Temp: " + dTemp + " F";    
-                    console.log(dayTemp)           
+                    //console.log(dayTemp)           
                     document.getElementById(idTemp).innerHTML= dayTemp;
 
-                    const dayWind = "Wind: " + wind + " mph";
-                    console.log(dayWind);
+                    //const dayIcon = dIcon;
+                    //console.log(dayIcon)
+
+                    const dayIcon = document.createElement("img");
+                    dayIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + dIcon + "@2x.png");
+                    // console.log("Icon");
+                    // console.log(dayIcon);
+                    document.getElementById(idIcon).innerHTML="";
+                    document.getElementById(idIcon).appendChild(dayIcon);
+
+
+                    const dayWind = "Wind: " + dWind + " mph";
+                    // console.log(dayWind);
                     document.getElementById(idWind).innerHTML =dayWind;
 
-                    const dayHumidity = "Humidity: " + humidity + "%";
-                    console.log(dayHumidity);
+                    const dayHumidity = "Humidity: " + dHumidity + "%";
+                    // console.log(dayHumidity);
                     document.getElementById(idHumidity).innerHTML = dayHumidity;
 
                  
@@ -104,7 +118,7 @@ function cityInfo(cityName = "Dixon") {
             }
         )
     }
-}
+};
     
 
 
@@ -112,8 +126,30 @@ function cityInfo(cityName = "Dixon") {
 
 document.querySelector('#search').addEventListener('submit', function (event) {
     event.preventDefault();
-    cityInfo(cityName=document.querySelector('input').value.trim());
-    console.log(cityName)
+    console.log(1);
+    cityName = document.querySelector('input').value.trim();
+    cityInfo(cityName);
+    console.log(cityName);
 });
+
+document.querySelector('#cityContainer').addEventListener('click', function (event) {
+    event.preventDefault();
+    if (event.target.matches("button")){
+        console.log(1);
+        cityName = event.target.dataset.value.trim();
+        cityInfo(cityName);
+        console.log(cityName);
+    }
+   
+});
+
+// function cityFunction(event){
+   
+//     cityInfo(cityName = document.querySelector('.btn').value);
+//     console.log(cityName);
+
+// }
+
+
 
 cityInfo();
