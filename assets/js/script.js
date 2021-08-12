@@ -27,15 +27,20 @@ function cityInfo(cityName = "Dixon") {
             })
             .then(function (data) {
                 cityData=data;    
-               
+               console.log(cityData)
                 //variables used for the current City
                 const temp=cityData.current.temp;
                 const date= cityData.current.dt;
                 const wind = cityData.current.wind_speed;
                 const humidity=cityData.current.humidity
-                const uvi=cityData.current.uvi
+                const uvi=cityData.current.uvi;
                 const dateString = moment.unix(date).format("MM/DD/YYYY");
-                
+                const icon=cityData.current.weather[0].icon;
+                const description = cityData.current.weather[0].description;
+                console.log(icon);
+
+
+
                 //create the City & Date String for current Chosen City and Date
                 const chosenCityDate = cityName+"   ("+ dateString+")";
                 document.getElementById("cCity").innerHTML = chosenCityDate;
@@ -47,6 +52,16 @@ function cityInfo(cityName = "Dixon") {
                 //create Wind String
                 const todayWind = "Wind: " + wind+" mph";
                 document.getElementById("cWind").innerHTML = todayWind;
+
+            
+
+               
+                document.getElementById("cdescription").innerHTML = description;
+                const todayIcon = document.createElement("img");
+                todayIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png");
+                console.log(todayIcon);
+                document.getElementById("cIcon").innerHTML="";
+                document.getElementById("cIcon").append(todayIcon);
 
                 //create Humidity String
                 const todayHumidity = "Humidity: " + humidity+ "%";
@@ -88,8 +103,6 @@ function cityInfo(cityName = "Dixon") {
                     //get the weather Icon
                     const dayIcon = document.createElement("img");
                     dayIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + dIcon + "@2x.png");
-                    // console.log("Icon");
-                    // console.log(dayIcon);
                     document.getElementById(idIcon).innerHTML="";
                     document.getElementById(idIcon).appendChild(dayIcon);
 

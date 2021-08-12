@@ -7,20 +7,33 @@ body{
 background-color:white;
 color: black;
 }
+header{
+  background-color: rgb(2, 59, 151);
+  color: antiquewhite;
+  line-height: 3rem;
+  margin-bottom:2%;
+  text-align: center;
+  font-size: 3rem;
+
+}
+h2 {
+  border-color: white;
+}
 .city {
   display:flex;
   flex-direction: column;
   width: 100px;
   height: auto;
   border:2px ridge #c3c3c3;
-  /* padding:10px; */
-  /* margin-top:10px; */
   text-align: center;
   line-height: 75px;
   font-size: 20px;
   justify-content:left
 }
+#cIcon{
+ width:15%
 
+}
 #currentcity {
   display: flex;
   display: inline-block;
@@ -43,9 +56,23 @@ color: black;
   height: 5vh ;
   border-style: ridge;
   border-color: blue;
+  background-color: rgb(208, 210, 236);
   border-width: 3px;
   border-radius: 5px;
   margin: 5px 0 5px 5px;
 
 }
+.cityBtn{
+ border-style: ridge;
+ border-color: blue;
+ background-color: rgb(208, 210, 236);
 
+}
+.forcast{
+display:flex;
+color:black;
+background-color: rgb(208, 210, 236);
+border-color: blue;
+border-style:ridge;
+
+}
