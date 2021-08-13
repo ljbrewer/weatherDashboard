@@ -42,14 +42,15 @@ h2 {
   margin-right: 0;
   justify-items: left;
   flex-direction: column;
-  width: 80vw;
-  height: auto;
+  width: 50vw;
+  height:50vh;
   padding:50px;
   border:5px ridge blue ;
   text-align: left;
-  line-height: 75px;
+  line-height:50px;
   font-size: 20px;
- 
+ margin-bottom:10%;
+
 }
 .btn {
   width:10vw;

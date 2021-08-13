@@ -1,5 +1,5 @@
 # weatherDashboard
-
+The Weather Dashboard shows a default city, then when the user enters the city name that they want to see or click on one of the city button, the weather data for that city and it's 5 day forcast will be displayed.  The UV Index will be colored depending on the UV rating for the city: green is good, orange is be careful and pink is stay inside.
 
 ## User Story
 
@@ -12,6 +12,7 @@ SO THAT I can plan a trip accordingly
 ## Acceptance Criteria
 
 ```
+all the following criteria has been met.
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
     THEN I am presented with current and future conditions for that city and that city is added to the search history
@@ -24,3 +25,13 @@ WHEN I view future weather conditions for that city
 WHEN I click on a city in the search history
     THEN I am again presented with current and future conditions for that city
 ```
+### link to page:  https://ljbrewer.github.io/DayPlanner/
+
+
+### Link to GitHub repository:https://github.com/ljbrewer/DayPlanner
+
+### picture:
+
+
+### picture of Webpage:
+![image of DayPlanner](./assets/images/dashboard.png)

@@ -19,7 +19,7 @@ function cityInfo(cityName = "Dixon") {
         
     function getweatherData(lat,lon,cityName) {
 
-         let endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=b1034edd48bb8721bfd5c43b5819c1c1"
+         let endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=b1034edd48bb8721bfd5c43b5819c1c1";
            // console.log(endPoint);
             fetch(endPoint)
             .then(function (response) {
@@ -68,8 +68,18 @@ function cityInfo(cityName = "Dixon") {
                 document.getElementById("cHumidity").innerHTML = todayHumidity;
 
                 //create UVI String
+
                 const todayUVI = "UVI: " + uvi;
                 document.getElementById("cUVI").innerHTML = todayUVI;
+                console.log(uvi);
+              if (uvi<3){  
+                  document.getElementById("cUVI").style.backgroundColor = "lightgreen";
+              } else if (uvi>=8){
+                  document.getElementById("cUVI").style.backgroundColor = "pink";
+              } else 
+                  document.getElementById("cUVI").style.backgroundColor = "lightorange";
+
+
 
                 //five day forcast
                 for (let i = 1; i < 6; i++) {
