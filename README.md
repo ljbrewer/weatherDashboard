@@ -25,12 +25,10 @@ WHEN I view future weather conditions for that city
 WHEN I click on a city in the search history
     THEN I am again presented with current and future conditions for that city
 ```
-### link to page:  https://ljbrewer.github.io/DayPlanner/
+### link to page:   https://ljbrewer.github.io/weatherDashboard/
 
 
-### Link to GitHub repository:https://github.com/ljbrewer/DayPlanner
-
-### picture:
+### Link to GitHub repository: https://github.com/ljbrewer/weatherDashboard
 
 
 ### picture of Webpage:
